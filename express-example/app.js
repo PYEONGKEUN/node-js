@@ -41,6 +41,12 @@ app.use(function(err, req, res, next) {
     error: (app.get('env') === 'development') ? err : {}
   });
 });
-
+process.on('SIGINT', function () {
+  isDisableKeepAlive = true
+  app.close(function () {
+  console.log('server closed')
+  process.exit(0)
+  })
+});
 
 module.exports = app;
