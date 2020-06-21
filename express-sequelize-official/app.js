@@ -3,8 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-// connect To DB
-const sequelize = require('./sequelize_models').sequelize;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -41,25 +39,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-// connect To DB
-// 서버 시작이 models에 있는 테이블들을 연결도니 DB에 Create 및 Alter
-// https://sequelize.org/master/class/lib/sequelize.js~Sequelize.html#instance-method-sync
-sequelize.sync({
-  alter: true,
-  logging : true,
-  //force : false -> true 일경우 테이블을 무조건 Drop 함
-  // schema : true
 
-})
-  .then(() => {
-    console.log('✓ DB connection success.');
-    console.log('  Press CTRL-C to stop\n');
-  })
-  .catch(err => {
-    console.error(err);
-    console.log('✗ DB connection error. Please make sure DB is running.');
-    process.exit();
-  });
 
 module.exports = app;
-
