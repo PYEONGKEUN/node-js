@@ -1,46 +1,25 @@
-const {Sequelize, sequelize, DataTypes} = require('./index');
+const {Sequelize} = require('sequelize');
 
-module.exports = function () {
+module.exports = function (sequelize, DataTypes) {
     const crewAttendence = sequelize.define('crewAttendence', {
+      attendenceID: {
+        field: 'attendenceID', 
+        type: DataTypes.UUID,
+        defaultValue: Sequelize.UUIDV4, // Or Sequelize.UUIDV1
+        primaryKey: true,
+        allowNull: false,
+      },
       userID: { 
-
           field: 'userID', 
           type: DataTypes.UUID,
           defaultValue: Sequelize.UUIDV4, // Or Sequelize.UUIDV1
-          primary: true,
           allowNull: false,
-          get(){
-            const rawValue = this.getDataValue(userID);
-            return rawValue ? rawValue.toUpperCase() : null;
-          }
         },
-      password: { 
-          field: 'password', 
+      crewID: { 
+          field: 'crewID', 
           type: DataTypes.STRING(30), 
           allowNull: false ,
-          get(){
-            const rawValue = this.getDataValue(password);
-            return rawValue ? rawValue.toUpperCase() : null;
-          }
         },
-        nickName: { 
-            field: 'nickName', 
-            type: DataTypes.STRING(30), 
-            allowNull: true,
-            get(){
-                const rawValue = this.getDataValue(nickName);
-                return rawValue ? rawValue.toUpperCase() : null;
-              }
-          },
-          nickName: { 
-            field: 'nickName', 
-            type: DataTypes.STRING(30), 
-            allowNull: true,
-            get(){
-                const rawValue = this.getDataValue(nickName);
-                return rawValue ? rawValue.toUpperCase() : null;
-              }
-          },
     }, {
             // define the table's name
             tableName: 'crewattendence',

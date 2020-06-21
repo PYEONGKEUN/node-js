@@ -14,10 +14,10 @@ router.get('/', function (req, res, next) {
   })
 });
 
-router.get('/getUser/:user_id', function (req, res) {
-  models.User.findAll({
+router.get('/getUser/:nickName', function (req, res) {
+  models.user.findAll({
       where: {
-        "user_id": user_id
+        "nickName": nickName
       }
     })
     .then(results => {
@@ -32,7 +32,7 @@ router.get('/getUser/:user_id', function (req, res) {
 });
 
 router.get('/list', function (req, res) {
-  models.User.findAll()
+  models.user.findAll()
     .then(results => {
       res.json(results);
     })
@@ -41,7 +41,7 @@ router.get('/list', function (req, res) {
     });
 })
 router.get('/create', function (req, res, next) {
-  models.User.create({password: '1234'})
+  models.user.create({password: '1234', phone:'010-2999-8890', nickName: 'hello'})
   .then(result => {
      res.json(result);
   })
