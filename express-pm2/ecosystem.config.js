@@ -8,6 +8,7 @@ module.exports = {
         wait_ready: true,
         listen_timeout: 50000,
         kill_timeout: 5000,
+        log_date_format: ,
         error_file: 'err.log',
         out_file: 'out.log',
         log_file: 'combined.log',

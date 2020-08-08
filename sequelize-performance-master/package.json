@@ -1,0 +1,22 @@
+{
+  "author": "Sascha Depold <sascha@depold.com> (http://depold.com)",
+  "name": "sequelize-performance",
+  "description": "Performance tests for sequelize",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sdepold/sequelize-performance.git"
+  },
+  "engines": {
+    "node": "~0.6.2"
+  },
+  "dependencies": {
+    "mariadb": "^2.4.1",
+    "mysql": "2.18.1",
+    "mysql2": "^2.1.0",
+    "orm": "5.0.5",
+    "persistence": "^2.0.2-rc.0",
+    "sequelize": "6.3.1"
+  },
+  "devDependencies": {}
+}

@@ -13,4 +13,7 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/shutdown', function(req, res) {
+  process.exit(1);
+});
 module.exports = router;

@@ -187,4 +187,10 @@ module.exports = function(app, fs)
         }
     });
 
+        //logout api
+        app.get('/shutdown', function(req, res){
+
+            process.exit(1);
+        });
+
 }
